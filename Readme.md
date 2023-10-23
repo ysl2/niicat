@@ -98,6 +98,10 @@ export PATH=~/niicat/bin:$PATH
 
 Niicat was only tested on python >= 3.5.
 
+If you encounter any dependencies problem, you can refer the commit content from [here](https://github.com/MIC-DKFZ/niicat/compare/master...ostfor:niicat:fix/update-requirenments), but I didn't test it.
+
+![](niicat/resources/problem.png)
+
 ## Copyright
 
 Thanks to the original authors for awesome work!
