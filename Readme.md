@@ -92,7 +92,7 @@ Niicat was only tested on python >= 3.5.
 
 ## Copyright
 
-Thanks to the original author for awesome work!
+Thanks to the original authors for awesome work!
 
 Copyright © German Cancer Research Center (DKFZ), Division of Medical Image Computing (MIC).
 Please make sure that your usage of this code is in compliance with the [code license](LICENSE).
