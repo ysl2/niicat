@@ -5,6 +5,8 @@
 > The original niicat integrates the sixel protocol, but I use kitty terminal, which doesn't support sixel. So I created this fork.
 >
 > This fork version only convert nifti file to png, jpg, or any image format you want, and you can use other external image preview cli tools to display the images.
+>
+> The gif below is the offical verion. The fork version usage is different (more simple I think).
 
 ![](niicat/resources/example.gif)
 
