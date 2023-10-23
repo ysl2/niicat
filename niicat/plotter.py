@@ -1,43 +1,9 @@
-
-import io
-import importlib
 import nibabel as nb
 import numpy as np
 import matplotlib.pyplot as plt
 
 
-def try_import(module):
-    "Try to import `module`. Returns module's object on success, None on failure"
-    try: return importlib.import_module(module)
-    except: return None
-
-libsixel = try_import("libsixel")
-
-
-def _sixel_encode(data, width, height):
-    """Adapted from https://github.com/fastai/fastai/blob/master/fastai/sixel.py"""
-    s = io.BytesIO()
-    output = libsixel.sixel_output_new(lambda data, s: s.write(data), s)
-    dither = libsixel.sixel_dither_new(256)
-    w,h = int(width),int(height)
-    libsixel.sixel_dither_initialize(dither, data, w, h, libsixel.SIXEL_PIXELFORMAT_RGBA8888)
-    libsixel.sixel_encode(data, w, h, 1, dither, output)
-    return s.getvalue().decode('ascii')
-
-
-def _plot_sixel(fig=None):
-    """Adapted from https://github.com/fastai/fastai/blob/master/fastai/sixel.py"""
-    if not libsixel:
-        print("`libsixel-python` is missing. See https://github.com/saitoha/libsixel")
-        return
-    if fig is None: fig = plt.gcf()
-    fig.canvas.draw()
-    dpi = fig.get_dpi()
-    res = _sixel_encode(fig.canvas.buffer_rgba(), fig.get_figwidth()* dpi, fig.get_figheight() * dpi)
-    print(res)
-
-
-def _plot_nifti_preview(iFile, return_fig=False, dpi=150):
+def _plot_nifti_preview(iFile, dpi=150):
     """Adapted from https://github.com/vnckppl/niipre"""
 
     # Disable Toolbar for plots
@@ -227,30 +193,24 @@ def _plot_nifti_preview(iFile, return_fig=False, dpi=150):
     # Adjust whitespace
     plt.subplots_adjust(left=0, bottom=0, right=1, top=1, wspace=0, hspace=0)
 
-    if return_fig:
-        return fig
-    else:
-        _plot_sixel(fig)
+    return fig
 
 
-def _plot_img(iFile, return_fig=False, dpi=150):
+def _plot_img(iFile, dpi=150):
     image = plt.imread(iFile)
     fig, ax = plt.subplots(dpi=dpi)
     ax.imshow(image)
     ax.axis('off')
     plt.subplots_adjust(left=0, bottom=0, right=1, top=1, wspace=0, hspace=0)
-    if return_fig:
-        return fig
-    else:
-        _plot_sixel(fig)
+    return fig
 
 
 def _is_nifti_file(filename):
     return filename.lower().endswith((".nii.gz", ".nii"))
 
 
-def plot(iFile, return_fig=False, dpi=150):
+def plot(iFile, dpi=150):
     if _is_nifti_file(iFile):
-        return _plot_nifti_preview(iFile, return_fig=return_fig, dpi=dpi)
+        return _plot_nifti_preview(iFile, dpi=dpi)
     else:
-        return _plot_img(iFile, return_fig=return_fig, dpi=dpi)
+        return _plot_img(iFile, dpi=dpi)
