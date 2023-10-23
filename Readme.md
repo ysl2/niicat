@@ -65,11 +65,13 @@ export PATH=~/niicat/bin:$PATH
     # Both `sixels` or `sixel` are ok here, I don't know why,
     # but the offical command flag is `sixels`.
 
-    # for iterm format
-    chafa -f iterm /tmp/T1.png
-
     # for kitty format
+    # Only works when you are using kitty terminal.
     chafa -f kitty /tmp/T1.png
+
+    # for iterm format
+    # I don't use iterm so I'm not sure if this must in iterm.
+    chafa -f iterm /tmp/T1.png
     ```
 
 3. You can write a script to automatically run the steps above, but this is not the goal of the fork project. This fork only aims to convet the nifti to common image, and the preview task is finished by other tools, for example, `chafa`, `viu`, `timg`, `img2sixel`, etc.
