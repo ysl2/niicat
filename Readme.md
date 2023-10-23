@@ -11,7 +11,7 @@
 This is a tool to help you convert the nifti to png or jpg, and you can use external cli tools to quickly preview nifti images on the terminal.
 This can be helpful if you are working on a remote server via SSH and do not have a -X connection.
 
-### Install:
+## Install:
 
 ```bash
 # If you have installed the offical version,
@@ -31,7 +31,7 @@ export PATH=~/niicat/bin:$PATH
 # and run `source ~/.bashrc` to refresh the config.
 ```
 
-### Usage:
+## Usage:
 
 > NOTE: The gif above is the offical niicat usage, it doesn't suit the fork version. Please refer the steps below.
 
@@ -86,15 +86,11 @@ export PATH=~/niicat/bin:$PATH
     chafa -f sixels "$TMPFILE"
     ```
 
-
-
-
-### Possible problems
+## Possible problems
 
 Niicat was only tested on python >= 3.5.
 
-
-### Copyright
+## Copyright
 
 Thanks to the original author for awesome work!
 
