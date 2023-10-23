@@ -23,6 +23,10 @@ cd ~  # You can choose other destination folder.
 # Clone the forked version repo.
 git clone https://github.com/ysl2/niicat.git
 
+# Install dependencies
+cd niicat
+pip install -r requirements.txt
+
 # Then, add The executable file path into $PATH
 export PATH=~/niicat/bin:$PATH
 
