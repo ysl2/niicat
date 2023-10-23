@@ -1,4 +1,4 @@
-# niicat: A fork version for multiple image protocol support, like ascii, sixel, iterm and kitty.
+# niicat: A fork version supports multiple image protocol, like ascii, sixel, iterm and kitty.
 
 > NOTE:
 >
